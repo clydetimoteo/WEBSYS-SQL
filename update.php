@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Other fields
-    $profile_picture = $row['ProfilePicture']; // Default to existing picture
+    $profile_picture = $row['ProfilePicture'];
 
     if (!empty($_FILES['profile_picture']['name'])) {
         $profile_picture = 'pictures/' . basename($_FILES['profile_picture']['name']);

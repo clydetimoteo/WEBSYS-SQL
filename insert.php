@@ -1,9 +1,9 @@
 <?php
-// Include database connection
+
 include 'db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get form data
+
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $address = $_POST['address'];
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $department = $_POST['department'];
     $date_of_joining = $_POST['date_of_joining'];
 
-    $target_dir = 'pictures/'; // Directory for uploads
+    $target_dir = 'pictures/'; 
     $target_file = $target_dir . basename($_FILES['profile_picture']['name']);
     $upload_ok = 1;
     $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
