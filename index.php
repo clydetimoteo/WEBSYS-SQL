@@ -113,6 +113,7 @@ include 'db_connection.php';
         <br>
         <input type="text" name="department" placeholder="Department" required>
         <br>
+        Employment Date:
         <input type="date" name="date_of_joining" required>
         <br>
         <button type="submit">Register</button>
