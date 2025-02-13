@@ -9,21 +9,35 @@ include 'db_connection.php';
     <title>HRMS</title>
     
     <style>
-        body{
+        body {
             font-family: Century Gothic;
-        }body h1{
-            
-        }form input{
+        }
+        form input {
             border: 0.5px solid;
             border-radius: 5px;
             padding: 15px;
-        }form button:hover{
+            margin: 5px 0; /* Added margin for better spacing */
+        }
+        form button:hover {
             background-color: green;
             color: white;
             transition: 0.3s ease;
             border-radius: 10px;
-        }header{
+        }
+        header {
             background-color: red;
+            color: white;
+            padding: 10px; /* Added padding for better appearance */
+            text-align: center; /* Centered the header text */
+        }
+        table {
+            width: 100%; /* Make the table full width */
+            border-collapse: collapse; /* Remove space between cells */
+        }
+        th, td {
+            border: 1px solid black; /* Add border for table cells */
+            padding: 8px; /* Add padding for table cells */
+            text-align: left; /* Align text to the left */
         }
     </style>
 </head>
@@ -31,8 +45,8 @@ include 'db_connection.php';
     <header>HUMAN RESOURCE MANAGEMENT SYSTEM</header> 
     
     <h2>ADD NEW EMPLOYEE</h2>
-    <form action="insert.php" method="post">
-        <input type="file" name="profile_picture" accept="image/*">
+    <form action="insert.php" method="post" enctype="multipart/form-data"> <!-- Added enctype -->
+        <input type="file" name="profile_picture" accept="image/*" required>
         <br>
         <input type="text" name="fname" placeholder="First Name" required>
         <br>
@@ -48,7 +62,6 @@ include 'db_connection.php';
         <br>
         <input type="date" name="date_of_joining" required>
         <br>
-
         <button type="submit">Register</button>
     </form>
 
@@ -63,6 +76,7 @@ include 'db_connection.php';
             <th>Position</th>
             <th>Department</th>
             <th>Date of Joining</th>
+            <th>Profile Picture</th> <!-- Added header for profile picture -->
             <th>Actions</th>
         </tr>
         <?php
@@ -78,7 +92,7 @@ include 'db_connection.php';
                 <td>{$row['Department']}</td>
                 <td>{$row['DateOfJoining']}</td>
                 <td>
-                <img src='{$row['ProfilePicture']}' alt='Profile Picture' width='50' height='50'>
+                    <img src='{$row['ProfilePicture']}' alt='Profile Picture' width='50' height='50'>
                 </td>
                 <td>
                     <a href='update.php?id={$row['ID']}'>Edit</a> | 
